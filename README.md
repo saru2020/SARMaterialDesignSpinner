@@ -1,7 +1,7 @@
 # SARMaterialDesignSpinner
 	An InDeterminate Spinner for iOS, Written in Swift.
 
-<i>Inspired from Google's Material Design Guidelines. </i>
+<i>Swift version of ![MMMaterialDesignSpinner](https://github.com/misterwell/MMMaterialDesignSpinner) which was inspired from Google's Material Design Guidelines. </i>
 
 <br>
 
