@@ -12,6 +12,7 @@
 		EBDFEA1B1C72F81200BAB4F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDFEA191C72F81200BAB4F9 /* Main.storyboard */; };
 		EBDFEA1D1C72F81200BAB4F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBDFEA1C1C72F81200BAB4F9 /* Assets.xcassets */; };
 		EBDFEA201C72F81200BAB4F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDFEA1E1C72F81200BAB4F9 /* LaunchScreen.storyboard */; };
+		EBDFEA281C72F8A700BAB4F9 /* SARMaterialDesignSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFEA271C72F8A700BAB4F9 /* SARMaterialDesignSpinner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EBDFEA1C1C72F81200BAB4F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBDFEA1F1C72F81200BAB4F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBDFEA211C72F81200BAB4F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBDFEA271C72F8A700BAB4F9 /* SARMaterialDesignSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SARMaterialDesignSpinner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				EBDFEA151C72F81200BAB4F9 /* AppDelegate.swift */,
 				EBDFEA171C72F81200BAB4F9 /* ViewController.swift */,
+				EBDFEA271C72F8A700BAB4F9 /* SARMaterialDesignSpinner.swift */,
 				EBDFEA191C72F81200BAB4F9 /* Main.storyboard */,
 				EBDFEA1C1C72F81200BAB4F9 /* Assets.xcassets */,
 				EBDFEA1E1C72F81200BAB4F9 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				EBDFEA181C72F81200BAB4F9 /* ViewController.swift in Sources */,
 				EBDFEA161C72F81200BAB4F9 /* AppDelegate.swift in Sources */,
+				EBDFEA281C72F8A700BAB4F9 /* SARMaterialDesignSpinner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
