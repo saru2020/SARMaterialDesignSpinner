@@ -19,8 +19,8 @@ class SARMaterialDesignSpinner: UIView {
     var isAnimating = false
     var enableGoogleMultiColoredSpinner = true
     var count = 0
-    let googleColorsArray = [UIColor.blueColor(), UIColor.redColor(), UIColor.yellowColor(), UIColor.greenColor()]
-    var timer: NSTimer!
+    let googleColorsArray = [UIColor.blue, UIColor.red, UIColor.yellow, UIColor.green]
+    var timer: Timer!
     
     //    MARK: -Initializers
     override init (frame : CGRect) {
@@ -39,19 +39,19 @@ class SARMaterialDesignSpinner: UIView {
     }
     
     override func layoutSubviews() {
-        self.progressLayer.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+        self.progressLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height);
         self.updateProgressLayerPath()
     }
     
     //    MARK: -Setup Methods
     func setup(){
-        timer = NSTimer.scheduledTimerWithTimeInterval(kSARRingStrokeAnimationDuration, target: self, selector: "handleGoogleMultiColoredTimer", userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: kSARRingStrokeAnimationDuration, target: self, selector: #selector(SARMaterialDesignSpinner.handleGoogleMultiColoredTimer), userInfo: nil, repeats: true)
         self.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         setupProgressLayer()
     }
     
     func setupProgressLayer() {
-        progressLayer.strokeColor = UIColor.redColor().CGColor
+        progressLayer.strokeColor = UIColor.red.cgColor
         progressLayer.fillColor = nil
         progressLayer.lineWidth = 2.0
         self.layer.addSublayer(progressLayer)
@@ -59,26 +59,26 @@ class SARMaterialDesignSpinner: UIView {
     }
     
     func updateProgressLayerPath() {
-        let center = CGPoint(x: CGRectGetMidX(self.bounds), y: CGRectGetMidY(self.bounds))
-        let radius = min(CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) / 2) - self.progressLayer.lineWidth / 2
+        let center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        let radius = min(self.bounds.width / 2, self.bounds.height / 2) - self.progressLayer.lineWidth / 2
         let startAngle: CGFloat = 0
         let endAngle: CGFloat = 2*CGFloat(M_PI)
         let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-        self.progressLayer.path = path.CGPath
+        self.progressLayer.path = path.cgPath
         
         self.progressLayer.strokeStart = 0.0
         self.progressLayer.strokeEnd = 0.0
     }
     
     func handleGoogleMultiColoredTimer() {
-        count++;
+        count += 1;
         if !enableGoogleMultiColoredSpinner {
             return
         }
         
         let index = count % self.googleColorsArray.count
         let color = self.googleColorsArray[index]
-        self.progressLayer.strokeColor = color.CGColor
+        self.progressLayer.strokeColor = color.cgColor
     }
     
     //    MARK: -Accessors
@@ -94,10 +94,10 @@ class SARMaterialDesignSpinner: UIView {
     
     var strokeColor: UIColor {
         get {
-            return UIColor(CGColor: self.progressLayer.strokeColor!)
+            return UIColor(cgColor: self.progressLayer.strokeColor!)
         }
         set(newValue) {
-            self.progressLayer.strokeColor = newValue.CGColor
+            self.progressLayer.strokeColor = newValue.cgColor
         }
     }
     
@@ -112,7 +112,7 @@ class SARMaterialDesignSpinner: UIView {
         animation.fromValue = 0
         animation.toValue = (2 * M_PI)
         animation.repeatCount = Float.infinity
-        self.progressLayer.addAnimation(animation, forKey: kSARRingRotationAnimationKey)
+        self.progressLayer.add(animation, forKey: kSARRingRotationAnimationKey)
         
         let headAnimation = CABasicAnimation(keyPath: "strokeStart")
         headAnimation.duration = 1
@@ -144,7 +144,7 @@ class SARMaterialDesignSpinner: UIView {
         animations.duration = kSARRingStrokeAnimationDuration
         animations.animations = [headAnimation, tailAnimation, endHeadAnimation, endTailAnimation]
         animations.repeatCount = Float.infinity;
-        self.progressLayer.addAnimation(animations, forKey: kSARRingStrokeAnimationKey)
+        self.progressLayer.add(animations, forKey: kSARRingStrokeAnimationKey)
         
         
         self.isAnimating = true;
@@ -156,8 +156,8 @@ class SARMaterialDesignSpinner: UIView {
             return
         }
         
-        self.progressLayer.removeAnimationForKey(kSARRingRotationAnimationKey)
-        self.progressLayer.removeAnimationForKey(kSARRingStrokeAnimationKey)
+        self.progressLayer.removeAnimation(forKey: kSARRingRotationAnimationKey)
+        self.progressLayer.removeAnimation(forKey: kSARRingStrokeAnimationKey)
         self.isAnimating = false;
         
     }
