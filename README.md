@@ -10,6 +10,13 @@
 <br>
 
 <br/><b>Installation :</b><br/>
+Add the following to your <a href="http://cocoapods.org/">CocoaPods</a> Podfile
+
+pod 'SARMateriaDesignSpinner'
+
+or clone as a git submodule,
+
+or any way you'd prefer to play with ;)
 
 	Copy/Include the "SARMaterialDesignSpinner.swift" file into your project and start using it right away.
 
