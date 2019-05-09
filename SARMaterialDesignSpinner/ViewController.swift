@@ -10,8 +10,8 @@ import UIKit
 
 public extension Float {
     public static func random(_ lower: Float, upper: Float) -> Float {
-        let r = Float(arc4random()) / Float(UInt32.max)
-        return (r * (upper - lower)) + lower
+        let random = Float(arc4random()) / Float(UInt32.max)
+        return (random * (upper - lower)) + lower
     }
 }
 
