@@ -24,12 +24,12 @@ class SARMaterialDesignSpinner: UIView {
 
     //    mark: -Initializers
     override init(frame: CGRect) {
-        super.init(frame : frame)
+        super.init(frame: frame)
         setup()
     }
 
     convenience init() {
-        self.init(frame:CGRect.zero)
+        self.init(frame: CGRect.zero)
         setup()
     }
 
@@ -50,7 +50,7 @@ class SARMaterialDesignSpinner: UIView {
                                      selector: #selector(SARMaterialDesignSpinner.handleGoogleMultiColoredTimer),
                                      userInfo: nil,
                                      repeats: true)
-        self.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        self.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         setupProgressLayer()
     }
 
@@ -75,7 +75,7 @@ class SARMaterialDesignSpinner: UIView {
         self.progressLayer.strokeEnd = 0.0
     }
 
-    func handleGoogleMultiColoredTimer() {
+    @objc func handleGoogleMultiColoredTimer() {
         count += 1
         if !enableGoogleMultiColoredSpinner {
             return
